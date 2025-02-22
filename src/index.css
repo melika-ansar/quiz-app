@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: anime ace;
+    src: url(./assets/fonts/animeace2_reg.ttf);
+}
+
+.background-wel {
+  background-image: url("./assets/images/bg.welcome.png");
+  background-size: cover;
+    filter: contrast(0.8) brightness(0.7);
+}
+
+.background-set {
+  background-image: url("./assets/images/bg.setup.png");
+  background-size: cover;
+}
+
+.background-result {
+  background-image: url("./assets/images/bg.result.JPG");
+  background-size: cover;
+}
