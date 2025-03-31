@@ -21,7 +21,7 @@ export default function SetUp() {
         <br />
         !!!!!
       </p>
-        <Form />
+      <Form />
     </div>
   );
 }

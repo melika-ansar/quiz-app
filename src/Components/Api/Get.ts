@@ -1,16 +1,20 @@
-import { BASE_URL } from "./Consts"
+import { BASE_URL } from './Consts';
+import axios from 'axios';
 
 interface IgetData {
-  count: string;
-  category: string;
+  count: number;
+  category: number;
   difficulty: string;
 }
 
-export const getData = async ({count, category, difficulty}:IgetData) => {
-  const data = await fetch(
-    `${BASE_URL}?amount=${count}&category=${category}&difficulty=${difficulty}`
-    
-  );
-  const response = await data.json();
-   return response.results;
+export const getData = async ({ count, category, difficulty }: IgetData) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}?amount=${count}&category=${category}&difficulty=${difficulty}&type=multiple`
+    );
+    return response.data.results;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return [];
+  }
 };

@@ -1,11 +1,13 @@
-import {Route, BrowserRouter as Router, Routes  } from "react-router"
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+ import { useReducer } from 'react';
 import { ROUTES } from "./constants/routes/routes"
 import SetUpPage from "./pages/setUp/setUp"
 import QuestionPage from "./pages/question/question"
 import ResultPage from "./pages/result/result"
 import WelcomePage from "./pages/welcome/welcome"
-import { ReactNode, useState } from "react"
-import { QuizContext } from "./context/context"
+import { createContext, ReactNode} from "react"
+import { initialSetupState, QuizSetupReducer } from "./Components/SetUpReducer/SetUpReducer"
+import { initialQuizState, QuizReducer } from "./Components/QuizReducer/QuizReducer"
 
 interface IrouteArray {
   path :string,
@@ -19,11 +21,19 @@ const routeArray : IrouteArray[] =[
     {path:ROUTES.result , element:<ResultPage />}
 ];
 
+export const QuizSetupContext = createContext<any>(null);
+export const QuizResultContext = createContext<any>(null);
+
+
 function App() {
-  const [QuizList, setQuizList] = useState([]);
+
+const [state, dispatch] = QuizSetupReducer();
+const [quizState, quizDispatch] = QuizReducer();
+
   return (
-    <>
-      <QuizContext.Provider value={{ QuizList, setQuizList }}>
+    <div>
+      <QuizSetupContext.Provider value={{ state, dispatch }}>
+        <QuizResultContext.Provider value={{ quizState, quizDispatch }}>
         <Router>
           <Routes>
             {routeArray.map((route, index) => (
@@ -31,8 +41,10 @@ function App() {
             ))}
           </Routes>
         </Router>
-      </QuizContext.Provider>
-    </>
+      </QuizResultContext.Provider>
+      </QuizSetupContext.Provider>
+      
+    </div>
   );
 }
 
