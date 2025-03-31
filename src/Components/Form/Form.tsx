@@ -9,7 +9,7 @@ export default function Form() {
   const navigate = useNavigate();
   const { state, dispatch } = useContext(QuizSetupContext);
   const { count, category, difficulty } = state;
-  const [isSubmitted, setIsSubmitted] = useState(false); // برای نمایش خطا فقط بعد از کلیک روی دکمه
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const CategoryOptions = [
     { value: 25, optionContent: 'ART' },
@@ -27,7 +27,7 @@ export default function Form() {
 
   const formHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitted(true); // زمانی که دکمه کلیک می‌شود، خطا نمایش داده شود
+    setIsSubmitted(true);
 
     if (count >= 10 && count <= 50) {
       navigate('/question');

@@ -1,5 +1,3 @@
-
-
 interface Iinputs {
   label: string;
   name : string;

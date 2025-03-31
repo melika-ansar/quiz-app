@@ -13,7 +13,7 @@ export default function Result() {
   const { state, dispatch } = useContext(QuizSetupContext);
   const totalQuestions = quizState.questions.length;
   const correctAnswers = quizState.score;
-  const percentage = Math.round((correctAnswers / totalQuestions) * 100); // مقدار رند شده
+  const percentage = Math.round((correctAnswers / totalQuestions) * 100);
 
   const navigate = useNavigate();
 
