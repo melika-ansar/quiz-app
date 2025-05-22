@@ -25,8 +25,8 @@ A modern and engaging quiz built with React, featuring a unique and distinctive 
 1. Clone the repository:
 
 ```bash
-git clone [https://github.com/Parisa-Esmaeilpour1993/Parmisar_Phone_shop.git]
-cd parmisar_phone_shop
+git clone [https://github.com/melika-ansar/quiz-app.git]
+cd quiz-app
 ```
 
 2. Install dependencies:
